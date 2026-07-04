@@ -18,10 +18,11 @@
   - [2. Gestor de Paquetes (Data Packager)](#2-gestor-de-paquetes-data-packager)
   - [3. Migrador de Bases de Datos](#3-migrador-de-bases-de-datos)
   - [4. Reductor de Logs (Shrink)](#4-reductor-de-logs-shrink)
-  - [5. Reparador (CheckDB)](#5-reparador-checkdb)
-  - [6. Usuarios Huérfanos](#6-usuarios-huérfanos)
-  - [7. Gestor de Respaldos](#7-gestor-de-respaldos)
+  - [5. Reparador DBCC y de Índices](#5-reparador-dbcc-y-de-índices)
+  - [6. Reparador de Usuarios Huérfanos](#6-reparador-de-usuarios-huérfanos)
+  - [7. Monitor de Bloqueos (Deadlocks)](#7-monitor-de-bloqueos-deadlocks)
   - [8. Reporteador SQL](#8-reporteador-sql)
+  - [9. Limpiador de Tablas Temporales](#9-limpiador-de-tablas-temporales)
 - [Control de Versiones (Changelog)](#control-de-versiones-changelog)
 
 ---
@@ -63,19 +64,19 @@ Las bases de datos SQL Server pueden generar archivos de registro (`.ldf`) gigan
 * **Características:**
   * Reducción inteligente por tamaño objetivo en MB.
 
-### 5. Reparador (CheckDB)
+### 5. Reparador DBCC y de Índices
 Verifica la integridad física y lógica de todos los objetos en la base de datos especificada usando `DBCC CHECKDB`.
 
 * **Caso de Uso:** El servidor sufrió un apagón y sospechas de corrupción de datos o páginas rotas.
 
-### 6. Usuarios Huérfanos
+### 6. Reparador de Usuarios Huérfanos
 Identifica y re-vincula usuarios de bases de datos (Database Users) que han perdido su conexión con el inicio de sesión del servidor (Server Login).
 
 * **Caso de Uso:** Restauraste una base de datos de otro servidor y ahora la aplicación no conecta porque el SID del usuario no coincide con el del servidor.
 * **Características:**
   * Opción "Auto-Fix" de un clic para usuarios sin contraseña conocida.
 
-### 7. Gestor de Respaldos
+### 7. Monitor de Bloqueos (Deadlocks)
 Realiza backups completos, diferenciales o de registro de múltiples bases de datos al mismo tiempo, mostrando el progreso de forma visual.
 
 * **Caso de Uso:** Respaldo preventivo antes de actualizar la aplicación de contabilidad (ERP).
@@ -91,13 +92,26 @@ Un editor SQL profesional integrado para ejecutar consultas (`SELECT` o `EXEC SP
   * Exportación nativa a **Excel, CSV, JSON, XML, HTML y TXT** respetando los tipos de datos estrictos (fechas, decimales).
   * Editor `RSyntaxTextArea` con coloreado de sintaxis SQL.
   * Protección Anti-Inyección bloqueando modificaciones de data (No Update/Delete).
-  * Autenticación integrada de Windows Auth pre-configurada.
+- Probar y guardar conexión para usos posteriores.
+- Seleccionar diferentes formatos y ejecutar exportación.
+
+### 9. Limpiador de Tablas Temporales
+**Propósito:** Detectar y eliminar de manera segura todas aquellas tablas temporales "huérfanas" (`ATABLATEMPTIPOSDOC%`, `ATEMPARTICSLIN%`, `TEMP_INVENTARIO%`, o `GUIDs`) que el sistema crea pero no elimina, evitando acumulación de basura en la base de datos.
+* **Casos de Uso:**
+  * Limpieza rutinaria tras procesos intensivos en el sistema.
+* **Cómo usarlo:**
+  * Al ingresar, presiona **Analizar DB**. Esto no borrará nada, sólo generará una lista visual de qué tablas cumplen el criterio.
+  * Revisa la lista, y si estás de acuerdo, presiona **Limpiar Tablas**. El sistema ejecutará el `DROP` tabla por tabla, capturando cualquier error si alguna llegara a estar bloqueada.
 
 ---
 
 ## Control de Versiones (Changelog)
 
-### v1.503 (Actual)
+### v1.504 (Actual)
+* **[NUEVO]** Creación del módulo "Limpiador de Tablas Temporales".
+* **[MEJORA]** Implementación de análisis previo para prevención de borrado ciego en limpieza de temporales.
+
+### v1.503
 * **[NUEVO]** Incorporación del Botón de Ayuda con redirección a esta documentación de GitHub.
 * **[MEJORA]** Establecimiento de guías y documentación oficial.
 
