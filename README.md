@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.507-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.508-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- ⬇️ **[Descargar Última Versión (v1.507)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- ⬇️ **[Descargar Última Versión (v1.508)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -144,7 +144,7 @@ Permite activar (Habilitar) o desactivar (Denegar conexión) rápidamente a los 
 
 ## Control de Versiones (Changelog)
 
-### v1.507 (Actual)
+### v1.508 (Actual)
 * **[NUEVO]** Módulo "Buscador de Dependencias" para encontrar objetos que dependan de otras bases de datos.
 * **[NUEVO]** Módulo "Gestor de Acceso" para desactivar/activar conexiones de usuarios de base de datos masivamente por seguridad durante mantenimientos.
 * **[MEJORA]** Reparador DBCC ahora auto-mata sesiones bloqueantes (`KILL`) para garantizar que el `SINGLE_USER` sea exitoso al reparar BD en estado sospechoso.
