@@ -1,5 +1,5 @@
-{
-    "changelog":  "- Novedad: Opcion para cancelar descarga.\n- UI Fix: Ajuste visual de los botones del panel principal.",
+﻿{
+    "changelog":  "- Integracion del Manual de Usuario y Documentacion en GitHub\n- Boton de Ayuda en el Menu Principal\n- Control de Versiones publico",
     "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.501"
+    "version":  "1.503"
 }
