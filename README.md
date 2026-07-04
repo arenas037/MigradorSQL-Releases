@@ -18,11 +18,13 @@
   - [2. Gestor de Paquetes (Data Packager)](#2-gestor-de-paquetes-data-packager)
   - [3. Migrador de Bases de Datos](#3-migrador-de-bases-de-datos)
   - [4. Reductor de Logs (Shrink)](#4-reductor-de-logs-shrink)
-  - [5. Reparador DBCC y de Índices](#5-reparador-dbcc-y-de-índices)
+  - [5. Reparador DBCC](#5-reparador-dbcc)
   - [6. Reparador de Usuarios Huérfanos](#6-reparador-de-usuarios-huérfanos)
-  - [7. Monitor de Bloqueos (Deadlocks)](#7-monitor-de-bloqueos-deadlocks)
-  - [8. Reporteador SQL](#8-reporteador-sql)
-  - [9. Limpiador de Tablas Temporales](#9-limpiador-de-tablas-temporales)
+  - [7. Gestor Masivo de Respaldos](#7-gestor-masivo-de-respaldos)
+  - [8. Monitor de Bloqueos (Deadlocks)](#8-monitor-de-bloqueos-deadlocks)
+  - [9. Mantenimiento de Índices](#9-mantenimiento-de-índices)
+  - [10. Reporteador SQL](#10-reporteador-sql)
+  - [11. Limpiador de Tablas Temporales](#11-limpiador-de-tablas-temporales)
 - [Control de Versiones (Changelog)](#control-de-versiones-changelog)
 
 ---
@@ -64,7 +66,7 @@ Las bases de datos SQL Server pueden generar archivos de registro (`.ldf`) gigan
 * **Características:**
   * Reducción inteligente por tamaño objetivo en MB.
 
-### 5. Reparador DBCC y de Índices
+### 5. Reparador DBCC
 Verifica la integridad física y lógica de todos los objetos en la base de datos especificada usando `DBCC CHECKDB`.
 
 * **Caso de Uso:** El servidor sufrió un apagón y sospechas de corrupción de datos o páginas rotas.
@@ -76,7 +78,7 @@ Identifica y re-vincula usuarios de bases de datos (Database Users) que han perd
 * **Características:**
   * Opción "Auto-Fix" de un clic para usuarios sin contraseña conocida.
 
-### 7. Monitor de Bloqueos (Deadlocks)
+### 7. Gestor Masivo de Respaldos
 Realiza backups completos, diferenciales o de registro de múltiples bases de datos al mismo tiempo, mostrando el progreso de forma visual.
 
 * **Caso de Uso:** Respaldo preventivo antes de actualizar la aplicación de contabilidad (ERP).
@@ -84,7 +86,22 @@ Realiza backups completos, diferenciales o de registro de múltiples bases de da
   * Respaldo por lotes.
   * Opción de añadir fecha/hora al nombre de archivo.
 
-### 8. Reporteador SQL
+### 8. Monitor de Bloqueos (Deadlocks)
+Visualiza en tiempo real los procesos bloqueados o en espera en la instancia de SQL Server.
+
+* **Caso de Uso:** Una consulta pesada dejó "colgado" el sistema de facturación.
+* **Características:**
+  * Permite matar la sesión (`KILL`) directamente desde la interfaz.
+  * Muestra el texto de la consulta infractora.
+
+### 9. Mantenimiento de Índices
+Analiza el grado de fragmentación de los índices de una base de datos y permite reorganizarlos o reconstruirlos.
+
+* **Caso de Uso:** Las consultas de búsqueda están muy lentas tras meses de uso intenso del sistema.
+* **Características:**
+  * Sugiere REORGANIZE o REBUILD basado en el porcentaje de fragmentación.
+
+### 10. Reporteador SQL
 Un editor SQL profesional integrado para ejecutar consultas (`SELECT` o `EXEC SP`), previsualizar los resultados y exportarlos masivamente.
 
 * **Caso de Uso:** El departamento de finanzas solicita un reporte complejo en Excel de las ventas cruzadas del año en curso.
@@ -92,10 +109,10 @@ Un editor SQL profesional integrado para ejecutar consultas (`SELECT` o `EXEC SP
   * Exportación nativa a **Excel, CSV, JSON, XML, HTML y TXT** respetando los tipos de datos estrictos (fechas, decimales).
   * Editor `RSyntaxTextArea` con coloreado de sintaxis SQL.
   * Protección Anti-Inyección bloqueando modificaciones de data (No Update/Delete).
-- Probar y guardar conexión para usos posteriores.
-- Seleccionar diferentes formatos y ejecutar exportación.
+  * Probar y guardar conexión para usos posteriores.
+  * Seleccionar diferentes formatos y ejecutar exportación.
 
-### 9. Limpiador de Tablas Temporales
+### 11. Limpiador de Tablas Temporales
 **Propósito:** Detectar y eliminar de manera segura todas aquellas tablas temporales "huérfanas" (`ATABLATEMPTIPOSDOC%`, `ATEMPARTICSLIN%`, `TEMP_INVENTARIO%`, o `GUIDs`) que el sistema crea pero no elimina, evitando acumulación de basura en la base de datos.
 * **Casos de Uso:**
   * Limpieza rutinaria tras procesos intensivos en el sistema.
