@@ -1,5 +1,7 @@
 ﻿{
-    "changelog":  "- Modulo Limpiador de Tablas Temporales (Detecta y elimina tablas huerfanas)\n- Mejorada la seguridad de limpieza evitando ejecuciones directas.",
-    "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.504"
+    "changelog": "- Modulo Limpiador de Tablas Temporales (Detecta y elimina tablas huerfanas)
+- Mejorada la seguridad de limpieza evitando ejecuciones directas.
+- AÃ±adido botÃ³n Buscar Actualizaciones manual en el menÃº principal.",
+    "url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
+    "version": "1.505"
 }
