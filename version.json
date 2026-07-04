@@ -1,7 +1,5 @@
-﻿{
-    "changelog": "- Modulo Limpiador de Tablas Temporales (Detecta y elimina tablas huerfanas)
-- Mejorada la seguridad de limpieza evitando ejecuciones directas.
-- AÃ±adido botÃ³n Buscar Actualizaciones manual en el menÃº principal.",
+{
+    "changelog": "- Modos de migración (Solo Datos, Solo Estructura, FULL)\n- Integración de PowerShell (SMO) para extraer esquemas SQL fielmente.\n- Validación de pre-requisitos de herramientas externas.",
     "url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version": "1.505"
+    "version": "1.506"
 }
