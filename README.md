@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.506-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.507-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- ⬇️ **[Descargar Última Versión (v1.506)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- ⬇️ **[Descargar Última Versión (v1.507)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -25,6 +25,8 @@ La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita 
   - [9. Mantenimiento de Índices](#9-mantenimiento-de-índices)
   - [10. Reporteador SQL](#10-reporteador-sql)
   - [11. Limpiador de Tablas Temporales](#11-limpiador-de-tablas-temporales)
+  - [12. Buscador de Dependencias](#12-buscador-de-dependencias)
+  - [13. Gestor de Acceso (Usuarios DB)](#13-gestor-de-acceso-usuarios-db)
 - [Control de Versiones (Changelog)](#control-de-versiones-changelog)
 
 ---
@@ -71,6 +73,9 @@ Las bases de datos SQL Server pueden generar archivos de registro (`.ldf`) gigan
 Verifica la integridad física y lógica de todos los objetos en la base de datos especificada usando `DBCC CHECKDB`.
 
 * **Caso de Uso:** El servidor sufrió un apagón y sospechas de corrupción de datos o páginas rotas.
+* **Características:**
+  * Forzado inteligente de modo `SINGLE_USER`. Si hay otras conexiones bloqueando el proceso, el sistema es capaz de hacer `KILL` automáticamente a todas las sesiones invasoras para garantizar la reparación.
+  * Soporte para `REPAIR_ALLOW_DATA_LOSS` en casos críticos (bases de datos `SUSPECT`).
 
 ### 6. Reparador de Usuarios Huérfanos
 Identifica y re-vincula usuarios de bases de datos (Database Users) que han perdido su conexión con el inicio de sesión del servidor (Server Login).
@@ -121,14 +126,32 @@ Un editor SQL profesional integrado para ejecutar consultas (`SELECT` o `EXEC SP
   * Al ingresar, presiona **Analizar DB**. Esto no borrará nada, sólo generará una lista visual de qué tablas cumplen el criterio.
   * Revisa la lista, y si estás de acuerdo, presiona **Limpiar Tablas**. El sistema ejecutará el `DROP` tabla por tabla, capturando cualquier error si alguna llegara a estar bloqueada.
 
+### 12. Buscador de Dependencias
+Identifica si objetos en tu base de datos actual (Triggers, Vistas, Procedimientos Almacenados) dependen de otras bases de datos externas en el mismo servidor.
+* **Caso de Uso:** Estás limpiando un servidor y necesitas saber si puedes eliminar la base de datos "FACTURACION_OLD" sin romper objetos en la base de datos de "PRODUCCION".
+* **Características:**
+  * Escanea el código fuente (definición) de todos los módulos SQL.
+  * Muestra el nombre del objeto local y qué base de datos externa está referenciando.
+
+### 13. Gestor de Acceso (Usuarios DB)
+Permite activar (Habilitar) o desactivar (Denegar conexión) rápidamente a los usuarios de una base de datos específica (excepto cuentas críticas como `dbo` o `sa`).
+* **Caso de Uso:** Vas a realizar un mantenimiento crítico en una base de datos y quieres evitar ingresos accidentales de usuarios de aplicación durante el proceso por seguridad.
+* **Características:**
+  * Interfaz de selección por casillas de verificación (Checkboxes).
+  * Aplicación masiva de permisos de estado `CONNECT`.
+
 ---
 
 ## Control de Versiones (Changelog)
 
-### v1.506 (Actual)
-* **[NUEVO]** Migrador: Soporte para 3 modos de migración (Solo Datos, Solo Estructura, FULL).
-* **[MEJORA]** Integración de PowerShell (SMO) para extraer esquemas SQL fielmente (100% exactitud en llaves, triggers, constraints y vistas).
-* **[MEJORA]** Validación inteligente de pre-requisitos de herramientas externas (SqlServer module).
+### v1.507 (Actual)
+* **[NUEVO]** Módulo "Buscador de Dependencias" para encontrar objetos que dependan de otras bases de datos.
+* **[NUEVO]** Módulo "Gestor de Acceso" para desactivar/activar conexiones de usuarios de base de datos masivamente por seguridad durante mantenimientos.
+* **[MEJORA]** Reparador DBCC ahora auto-mata sesiones bloqueantes (`KILL`) para garantizar que el `SINGLE_USER` sea exitoso al reparar BD en estado sospechoso.
+* **[MEJORA]** El script de SMO (Migrador) fue optimizado en PowerShell para escribir correctamente delimitadores `GO` entre lotes, evitando fallas de sintaxis en `CREATE VIEW`.
+* **[MEJORA]** Migrador ahora tiene tolerancia a fallos: ignora lotes erróneos (por dependencias externas) y continúa con la creación del resto de la base de datos.
+
+### v1.506
 
 ### v1.505
 * **[NUEVO]** Comprobador manual de actualizaciones en pantalla principal.
