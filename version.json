@@ -1,5 +1,5 @@
 {
-    "changelog":  "- Novedad: Modulo Reporteador SQL\n- Exporta a Excel (.xlsx), JSON, XML, CSV, TXT, HTML\n- Vista Previa rapida en pantalla\n- Formateo estricto de nulos, fechas y numeros",
+    "changelog":  "- Novedad: Opcion para cancelar descarga.\n- UI Fix: Ajuste visual de los botones del panel principal.",
     "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.500"
+    "version":  "1.501"
 }
