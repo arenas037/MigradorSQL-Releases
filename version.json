@@ -1,5 +1,5 @@
-﻿{
-    "changelog":  "- Buscador Global con NOLOCK\n- Seleccion de Multiples Scripts\n- Auto-Actualizador integrado",
+{
+    "changelog":  "- Buscador Global con NOLOCK\n- Seleccion de Multiples Scripts\n- Auto-Actualizador integrado (BOM FIX)",
     "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.100"
+    "version":  "1.200"
 }
