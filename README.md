@@ -165,7 +165,12 @@ Herramienta de diagnóstico que verifica si la configuración de la instancia de
 
 ## Control de Versiones (Changelog)
 
-### v1.515 (Actual)
+### v1.516 (Actual)
+* **[MEJORA]** Motor del Monitor de Salud potenciado con escaneo de 5 nuevas métricas críticas (Ad hoc Workloads, Backup Compression, Auto-Shrink, Auto-Close, Page Verify CHECKSUM).
+* **[MEJORA]** Interfaz interactiva del Monitor de Salud: Ahora permite hacer doble clic en cualquier diagnóstico para abrir un modal con la explicación detallada (Hint educativo) y la opción de aplicar el Fix automático.
+* **[NUEVO]** Sistema de Auto-Fix masivo integrado en el Monitor de Salud (ej. corrige todas las bases de datos con Auto-Shrink simultáneamente).
+
+### v1.515
 * **[MEJORA]** Interfaz renovada del Monitor de Salud con `GridBagLayout` para una presentación mucho más limpia de los parámetros de conexión.
 * **[FIX]** Solución a error de `ArrayIndexOutOfBoundsException` provocado al actualizar la tabla en segundo plano luego de aplicar una acción correctiva.
 

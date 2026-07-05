@@ -1,5 +1,5 @@
 {
-    "changelog":  "- Nuevo Modo Demo para facilitar pruebas de instalacion.",
+    "changelog":  "- Monitor de Salud potenciado con modal interactivo y Auto-Fix masivo (Ad hoc, Auto-Shrink, etc).",
     "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.515"
+    "version":  "1.516"
 }
