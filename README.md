@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.518-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.519-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- ⬇️ **[Descargar Última Versión (v1.518)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- ⬇️ **[Descargar Última Versión (v1.519)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -166,7 +166,12 @@ Herramienta de diagnóstico que verifica si la configuración de la instancia de
 
 ## Control de Versiones (Changelog)
 
-### v1.518 (Actual)
+### v1.519 (Actual)
+* **[MEJORA]** El módulo auto-actualizador ahora decodifica los mensajes nativamente en formato UTF-8 para prevenir errores visuales de caracteres (como tildes o eñes) en sistemas locales en español.
+* **[MEJORA]** Lógica de reemplazo de archivo mejorada: el instalador ahora hace reintentos automáticos si el archivo anterior sigue bloqueado en memoria, garantizando instalaciones más limpias.
+* **[NUEVO]** Se restauró el "Buscador de Dependencias Externas" (cross-database) clásico al Menú Principal, coexistiendo de forma independiente con el nuevo "Visualizador de Relaciones".
+
+### v1.518
 * **[MEJORA]** Motor del Monitor de Salud potenciado con escaneo de 5 nuevas métricas críticas (Ad hoc Workloads, Backup Compression, Auto-Shrink, Auto-Close, Page Verify CHECKSUM).
 * **[MEJORA]** Interfaz interactiva del Monitor de Salud: Ahora permite hacer doble clic en cualquier diagnóstico para abrir un modal con la explicación detallada (Hint educativo) y la opción de aplicar el Fix automático.
 * **[NUEVO]** Sistema de Auto-Fix masivo integrado en el Monitor de Salud (ej. corrige todas las bases de datos con Auto-Shrink simultáneamente).
