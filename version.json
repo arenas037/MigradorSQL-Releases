@@ -1,5 +1,5 @@
 {
-    "changelog":  "- Nuevo Módulo de Visualización de Relaciones y Dependencias al estilo SSMS (quién depende de qué y viceversa).",
+    "changelog":  "- Nuevo Modulo de Visualizacion de Relaciones y Dependencias al estilo SSMS (quien depende de que y viceversa).",
     "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
     "version":  "1.518"
 }
