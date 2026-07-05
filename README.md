@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.509-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.510-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- ⬇️ **[Descargar Última Versión (v1.509)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- ⬇️ **[Descargar Última Versión (v1.510)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -144,7 +144,13 @@ Permite activar (Habilitar) o desactivar (Denegar conexión) rápidamente a los 
 
 ## Control de Versiones (Changelog)
 
-### v1.509 (Actual)
+### v1.510 (Actual)
+* **[NUEVO]** Migrador: Opción "Solo Datos (Crear Tablas Faltantes)". Detecta y crea automáticamente en destino únicamente las tablas que no existen, optimizando el tiempo y evitando sobrescribir estructura existente.
+* **[NUEVO]** Migrador: Opción de Migración "Personalizada". Interfaz avanzada con pestañas (Tablas, Vistas, Procedimientos) para seleccionar objetos específicos a migrar de forma quirúrgica.
+* **[MEJORA]** Motor de Migración (PowerShell SMO): Adaptado para inyectar dinámicamente objetos seleccionados y respetar configuraciones personalizadas en tiempo real.
+* **[LOGRO]** Casos de éxito comprobados en producción: Migraciones exitosas en modo Solo Data y modo FULL (incluyendo procesamiento masivo de tablas con más de 1 billón de registros).
+
+### v1.509
 * **[NUEVO]** Módulo "Buscador de Dependencias" para encontrar objetos que dependan de otras bases de datos.
 * **[NUEVO]** Módulo "Gestor de Acceso" para desactivar/activar conexiones de usuarios de base de datos masivamente por seguridad durante mantenimientos.
 * **[MEJORA]** Reparador DBCC ahora auto-mata sesiones bloqueantes (`KILL`) para garantizar que el `SINGLE_USER` sea exitoso al reparar BD en estado sospechoso.
