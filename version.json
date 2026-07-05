@@ -1,5 +1,5 @@
 {
-    "changelog": "- Nuevas opciones avanzadas de migracion: Migracion Personalizada (Seleccion Quirurgica de Objetos) y Migracion de Solo Datos con Creacion de Tablas Faltantes",
+    "changelog": "- Nuevo Motor Reporteador nativo con UI dinámica para parámetros, extracción de T-SQL (doble clic), soporte para calendarios y validación estricta.\n- Expansión de características del Migrador de Datos (Solo Datos Inteligente).",
     "url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version": "1.510"
+    "version": "1.511"
 }
