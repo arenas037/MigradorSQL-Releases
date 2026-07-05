@@ -1,5 +1,5 @@
 {
     "changelog": "- Interfaz del Reparador ajustada para uso en pantallas completas\n- Botón añadido para Probar Conexión en módulo Reparador antes de iniciar",
     "url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version": "1.508"
+    "version": "1.509"
 }
