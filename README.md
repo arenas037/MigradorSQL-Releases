@@ -27,6 +27,8 @@ La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita 
   - [11. Limpiador de Tablas Temporales](#11-limpiador-de-tablas-temporales)
   - [12. Buscador de Dependencias](#12-buscador-de-dependencias)
   - [13. Gestor de Acceso (Usuarios DB)](#13-gestor-de-acceso-usuarios-db)
+  - [14. Gestor de Compresión de Índices y Tablas](#14-gestor-de-compresión-de-índices-y-tablas)
+  - [15. Monitor de Salud y Mejores Prácticas](#15-monitor-de-salud-y-mejores-prácticas)
 - [Control de Versiones (Changelog)](#control-de-versiones-changelog)
 
 ---
@@ -144,12 +146,33 @@ Permite activar (Habilitar) o desactivar (Denegar conexión) rápidamente a los 
   * Interfaz de selección por casillas de verificación (Checkboxes).
   * Aplicación masiva de permisos de estado `CONNECT`.
 
+### 14. Gestor de Compresión de Índices y Tablas
+Módulo enfocado en la optimización de almacenamiento mediante la compresión nativa de SQL Server (ROW y PAGE).
+* **Caso de Uso:** Reducir significativamente el espacio en disco utilizado por las bases de datos y mejorar el rendimiento de I/O, sin afectar el código de la aplicación.
+* **Características:**
+  * **Análisis Inteligente:** Evalúa el uso de cada índice (lecturas vs escrituras) para recomendar el tipo de compresión más adecuado.
+  * **Interfaz Optimizada:** Muestra una lista filtrada solo con objetos que se benefician de la compresión.
+  * **Aplicación Directa:** Permite aplicar la compresión (`REBUILD`) con un simple clic desde un modal detallado, con barra de progreso en tiempo real.
+
+### 15. Monitor de Salud y Mejores Prácticas
+Herramienta de diagnóstico que verifica si la configuración de la instancia de SQL Server cumple con los estándares de la industria y las mejores prácticas de rendimiento.
+* **Caso de Uso:** Identificar cuellos de botella y configuraciones por defecto ineficientes en un servidor (ej. memoria no limitada, umbral de paralelismo bajo).
+* **Características:**
+  * **Verificación Rápida:** Analiza parámetros críticos como `Max Server Memory`, `Cost Threshold for Parallelism`, `MAXDOP` y configuración de `TempDB`.
+  * **Corrección Automática (Auto-Fix):** Permite aplicar las configuraciones recomendadas directamente desde la herramienta de forma segura, previa confirmación del usuario.
+
 ---
 
 ## Control de Versiones (Changelog)
 
 ### v1.515 (Actual)
-* **[NUEVO]** Modo Demo de la aplicación implementado. Permite la evaluación total del sistema por un tiempo limitado de manera segura, omitiendo la necesidad del autenticador de instalación inicial.
+* **[MEJORA]** Interfaz renovada del Monitor de Salud con `GridBagLayout` para una presentación mucho más limpia de los parámetros de conexión.
+* **[FIX]** Solución a error de `ArrayIndexOutOfBoundsException` provocado al actualizar la tabla en segundo plano luego de aplicar una acción correctiva.
+
+### v1.514
+* **[NUEVO]** Módulo "Gestor de Compresión de Índices y Tablas" para optimizar el almacenamiento con recomendaciones automatizadas (PAGE/ROW) basadas en el uso de los objetos.
+* **[NUEVO]** Módulo "Monitor de Salud y Mejores Prácticas" para detectar parámetros subóptimos en la instancia de SQL (Memoria, MAXDOP, TempDB, etc) y ofrecer Auto-Fix guiados.
+* **[NUEVO]** Modo Demo de la aplicación implementado. Permite la evaluación total de la suite sin necesidad inicial de Autenticador (2FA) por un tiempo de gracia definido.
 
 ### v1.511
 * **[NUEVO]** Módulo Reporteador: Capacidad para leer, interpretar y deserializar reportes nativos (T-Strings/TWriter) almacenados como BLOBs en la tabla `INFORME`.
