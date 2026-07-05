@@ -1,5 +1,5 @@
 {
-    "changelog": "- Nuevo Motor Reporteador nativo con UI dinámica para parámetros, extracción de T-SQL (doble clic), soporte para calendarios y validación estricta.\n- Expansión de características del Migrador de Datos (Solo Datos Inteligente).",
-    "url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version": "1.511"
+    "changelog":  "- Nuevo Modo Demo para facilitar pruebas de instalacion.",
+    "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
+    "version":  "1.512"
 }

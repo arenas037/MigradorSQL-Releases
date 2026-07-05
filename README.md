@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.511-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.512-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- ⬇️ **[Descargar Última Versión (v1.511)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- ⬇️ **[Descargar Última Versión (v1.512)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -148,7 +148,10 @@ Permite activar (Habilitar) o desactivar (Denegar conexión) rápidamente a los 
 
 ## Control de Versiones (Changelog)
 
-### v1.511 (Actual)
+### v1.512 (Actual)
+* **[NUEVO]** Modo Demo de la aplicación implementado. Permite la evaluación total del sistema por un tiempo limitado de manera segura, omitiendo la necesidad del autenticador de instalación inicial.
+
+### v1.511
 * **[NUEVO]** Módulo Reporteador: Capacidad para leer, interpretar y deserializar reportes nativos (T-Strings/TWriter) almacenados como BLOBs en la tabla `INFORME`.
 * **[NUEVO]** Módulo Reporteador: Generación dinámica de UI para parámetros (`INFORMEPARAMETROS`), incluyendo validadores numéricos, máscaras de fecha y buscadores genéricos interactivos para campos relacionados (`SELECCION`).
 * **[NUEVO]** Módulo Reporteador: Visor de código SQL original integrado (doble clic en lista de reportes) con opción de copiar al portapapeles.
