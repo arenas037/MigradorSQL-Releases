@@ -1,5 +1,5 @@
 {
-    "changelog":  "- Nuevo Modulo de Visualizacion de Relaciones y Dependencias al estilo SSMS (quien depende de que y viceversa).",
+    "changelog":  "- Se restauro el Buscador de Dependencias Externas en el menu principal.\n- Fix: actualizador automatico ahora usa UTF-8 y maneja mejor los bloqueos de archivo.",
     "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.518"
+    "version":  "1.519"
 }
