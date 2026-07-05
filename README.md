@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.510-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.511-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- ⬇️ **[Descargar Última Versión (v1.510)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- ⬇️ **[Descargar Última Versión (v1.511)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -55,12 +55,17 @@ Permite extraer registros de múltiples tablas y empaquetarlos en un archivo por
   * Modos de importación: Diferencial (solo nuevos), Sincronización (Insert/Update), y Modo Normal.
 
 ### 3. Migrador de Bases de Datos
-Transfiere esquemas, tablas, datos, procedimientos y vistas desde una base de datos de origen a una de destino, incluso entre diferentes servidores.
+Transfiere esquemas, tablas, datos, procedimientos y vistas desde una base de datos de origen a una de destino, incluso operando entre servidores completamente diferentes (ej. SQL Server 2008 a SQL Server 2022).
 
-* **Caso de Uso:** Migrar un cliente desde un servidor Legacy a un servidor Cloud.
-* **Características:**
-  * Soporte para 3 modos de migración: **Solo Datos**, **Solo Estructura** (vía SMO para extraer 100% fielmente), o **FULL**.
-  * Resuelve automáticamente dependencias y llaves foráneas.
+* **Caso de Uso:** Migrar un cliente desde un servidor Legacy inestable hacia un servidor Cloud moderno, asegurando que todos los objetos se traspasen sin pérdida de datos.
+* **Características Destacadas:**
+  * **Modos de Migración Flexibles:** 
+    * **Solo Datos:** Sincroniza información. Incluye la opción inteligente de *Crear Tablas Faltantes*.
+    * **Solo Estructura (vía SMO):** Extrae la definición de tablas, vistas y SPs 100% fieles al origen usando scripts nativos.
+    * **FULL:** Estructura completa + Inserción de Datos masiva.
+  * **Migración Personalizada:** Interfaz quirúrgica con pestañas (Tablas, Vistas, Procedimientos) que te permite seleccionar exactamente qué objetos individuales deseas transferir.
+  * **Resolución Inteligente de Dependencias:** Respeta y resuelve automáticamente llaves foráneas (Foreign Keys) para evitar errores de integridad referencial.
+  * **Tolerancia a Fallos:** Ignora lotes erróneos (por dependencias externas irresolubles) permitiendo que la creación de la base de datos continúe sin abortar el proceso.
 
 ### 4. Reductor de Logs (Shrink)
 Las bases de datos SQL Server pueden generar archivos de registro (`.ldf`) gigantescos. Este módulo los reduce de forma segura y aplica modelos de recuperación adaptados al caso (Simple/Full).
@@ -107,16 +112,15 @@ Analiza el grado de fragmentación de los índices de una base de datos y permit
 * **Características:**
   * Sugiere REORGANIZE o REBUILD basado en el porcentaje de fragmentación.
 
-### 10. Reporteador SQL
-Un editor SQL profesional integrado para ejecutar consultas (`SELECT` o `EXEC SP`), previsualizar los resultados y exportarlos masivamente.
+### 10. Reporteador SQL y Ejecutor Nativo
+Un editor SQL profesional y motor de ejecución integrado capaz de procesar consultas (`SELECT` o `EXEC SP`), además de interpretar y ejecutar reportes desarrollados originalmente en el sistema base de Delphi (guardados como T-Strings/TWriter serializados en BLOBs).
 
-* **Caso de Uso:** El departamento de finanzas solicita un reporte complejo en Excel de las ventas cruzadas del año en curso.
-* **Características:**
-  * Exportación nativa a **Excel, CSV, JSON, XML, HTML y TXT** respetando los tipos de datos estrictos (fechas, decimales).
-  * Editor `RSyntaxTextArea` con coloreado de sintaxis SQL.
-  * Protección Anti-Inyección bloqueando modificaciones de data (No Update/Delete).
-  * Probar y guardar conexión para usos posteriores.
-  * Seleccionar diferentes formatos y ejecutar exportación.
+* **Caso de Uso:** El departamento de finanzas solicita un reporte complejo (ej. ventas cruzadas del año en curso) cuyo volumen de datos supera las 800 mil líneas, causando que el sistema legacy colapse o se quede sin memoria. El Reporteador extrae el código, genera la UI de parámetros y exporta el resultado directamente saltándose las limitaciones del cliente antiguo.
+* **Características Destacadas:**
+  * **Extracción Nativa de Código SQL:** Deserializa datos binarios (BLOBs) en tiempo real para recuperar el T-SQL original del reporte, permitiendo inspeccionarlo con doble clic.
+  * **Parámetros Dinámicos (UI Generada al Vuelo):** Crea una interfaz de usuario a partir de metadatos (`INFORMEPARAMETROS`), con soporte para calendarios (fechas), validación estricta de números y buscadores genéricos interactivos para referencias cruzadas (opción `SELECCION`).
+  * **Formato Condicional:** Aplica reglas de visibilidad de columnas (`INFORMECOLUMNAS`) automáticamente en los resultados.
+  * **Exportación Masiva y Anti-Inyección:** Exporta a **Excel, CSV, JSON, XML, HTML y TXT**. Bloquea cualquier intento de `UPDATE`/`DELETE` accidental garantizando seguridad total en modo lectura.
 
 ### 11. Limpiador de Tablas Temporales
 **Propósito:** Detectar y eliminar de manera segura todas aquellas tablas temporales "huérfanas" (`ATABLATEMPTIPOSDOC%`, `ATEMPARTICSLIN%`, `TEMP_INVENTARIO%`, o `GUIDs`) que el sistema crea pero no elimina, evitando acumulación de basura en la base de datos.
@@ -144,7 +148,14 @@ Permite activar (Habilitar) o desactivar (Denegar conexión) rápidamente a los 
 
 ## Control de Versiones (Changelog)
 
-### v1.510 (Actual)
+### v1.511 (Actual)
+* **[NUEVO]** Módulo Reporteador: Capacidad para leer, interpretar y deserializar reportes nativos (T-Strings/TWriter) almacenados como BLOBs en la tabla `INFORME`.
+* **[NUEVO]** Módulo Reporteador: Generación dinámica de UI para parámetros (`INFORMEPARAMETROS`), incluyendo validadores numéricos, máscaras de fecha y buscadores genéricos interactivos para campos relacionados (`SELECCION`).
+* **[NUEVO]** Módulo Reporteador: Visor de código SQL original integrado (doble clic en lista de reportes) con opción de copiar al portapapeles.
+* **[MEJORA]** Módulo Reporteador: Soporte para formato condicional de columnas (ocultar/mostrar basado en `INFORMECOLUMNAS`).
+* **[MEJORA]** Interfaz renovada con `GridBagLayout` para una presentación mucho más limpia y profesional de los parámetros.
+
+### v1.510
 * **[NUEVO]** Migrador: Opción "Solo Datos (Crear Tablas Faltantes)". Detecta y crea automáticamente en destino únicamente las tablas que no existen, optimizando el tiempo y evitando sobrescribir estructura existente.
 * **[NUEVO]** Migrador: Opción de Migración "Personalizada". Interfaz avanzada con pestañas (Tablas, Vistas, Procedimientos) para seleccionar objetos específicos a migrar de forma quirúrgica.
 * **[MEJORA]** Motor de Migración (PowerShell SMO): Adaptado para inyectar dinámicamente objetos seleccionados y respetar configuraciones personalizadas en tiempo real.
