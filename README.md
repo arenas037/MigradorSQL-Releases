@@ -132,12 +132,13 @@ Un editor SQL profesional y motor de ejecución integrado capaz de procesar cons
   * Al ingresar, presiona **Analizar DB**. Esto no borrará nada, sólo generará una lista visual de qué tablas cumplen el criterio.
   * Revisa la lista, y si estás de acuerdo, presiona **Limpiar Tablas**. El sistema ejecutará el `DROP` tabla por tabla, capturando cualquier error si alguna llegara a estar bloqueada.
 
-### 12. Buscador de Dependencias
-Identifica si objetos en tu base de datos actual (Triggers, Vistas, Procedimientos Almacenados) dependen de otras bases de datos externas en el mismo servidor.
-* **Caso de Uso:** Estás limpiando un servidor y necesitas saber si puedes eliminar la base de datos "FACTURACION_OLD" sin romper objetos en la base de datos de "PRODUCCION".
+### 12. Visualizador de Relaciones y Dependencias (SSMS-Style)
+Analiza y visualiza las relaciones jerárquicas entre los objetos de una base de datos utilizando las vistas del sistema de SQL Server (como `sys.sql_expression_dependencies`).
+* **Caso de Uso:** Necesitas modificar una tabla núcleo (ej. `CLIENTES`) y deseas saber exactamente qué Vistas y Procedimientos Almacenados se romperían si eliminas una columna.
 * **Características:**
-  * Escanea el código fuente (definición) de todos los módulos SQL.
-  * Muestra el nombre del objeto local y qué base de datos externa está referenciando.
+  * **Búsqueda Dinámica:** Filtra tablas, vistas, funciones y procedimientos en tiempo real.
+  * **Visualización Bidireccional (Pestañas):** Descubre rápidamente "Objetos que dependen de mí" (quién te usa) y "Objetos de los que dependo" (a quién usas).
+  * **Estructura SSMS:** Representación visual a través de un árbol de jerarquías agolpado por tipo de objeto.
 
 ### 13. Gestor de Acceso (Usuarios DB)
 Permite activar (Habilitar) o desactivar (Denegar conexión) rápidamente a los usuarios de una base de datos específica (excepto cuentas críticas como `dbo` o `sa`).
