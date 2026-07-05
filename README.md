@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.517-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.518-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- ⬇️ **[Descargar Última Versión (v1.517)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- ⬇️ **[Descargar Última Versión (v1.518)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -165,12 +165,12 @@ Herramienta de diagnóstico que verifica si la configuración de la instancia de
 
 ## Control de Versiones (Changelog)
 
-### v1.517 (Actual)
+### v1.518 (Actual)
 * **[MEJORA]** Motor del Monitor de Salud potenciado con escaneo de 5 nuevas métricas críticas (Ad hoc Workloads, Backup Compression, Auto-Shrink, Auto-Close, Page Verify CHECKSUM).
 * **[MEJORA]** Interfaz interactiva del Monitor de Salud: Ahora permite hacer doble clic en cualquier diagnóstico para abrir un modal con la explicación detallada (Hint educativo) y la opción de aplicar el Fix automático.
 * **[NUEVO]** Sistema de Auto-Fix masivo integrado en el Monitor de Salud (ej. corrige todas las bases de datos con Auto-Shrink simultáneamente).
 
-### v1.517
+### v1.518
 * **[MEJORA]** Interfaz renovada del Monitor de Salud con `GridBagLayout` para una presentación mucho más limpia de los parámetros de conexión.
 * **[FIX]** Solución a error de `ArrayIndexOutOfBoundsException` provocado al actualizar la tabla en segundo plano luego de aplicar una acción correctiva.
 
