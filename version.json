@@ -1,5 +1,5 @@
 {
-    "changelog":  "- Monitor de Salud potenciado con modal interactivo y Auto-Fix masivo (Ad hoc, Auto-Shrink, etc).",
+    "changelog":  "- Mejoras en UI del Reporteador: Calendario interactivo (JDateChooser), Layout de formulario ordenado y bloqueo estricto en campos numéricos.",
     "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.516"
+    "version":  "1.517"
 }
