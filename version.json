@@ -1,5 +1,5 @@
 {
-    "changelog":  "- [FIX] Correccion critica en las transferencias de datos parciales (Modo Personalizado y Tablas Faltantes). Ahora se asegura de recrear primero todos los esquemas (ej. ventas.Tabla) necesarios antes de copiar las tablas.",
+    "changelog":  "- [NEW] Filtro de Tipo de Objeto en Comparador (incluye Claves Foráneas). [FIX] Error de restricciones deshabilitadas en migraciones solucionado. [FIX] Bug de Windows Authentication solucionado.",
     "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.521"
+    "version":  "1.522"
 }
