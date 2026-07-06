@@ -21,7 +21,7 @@ La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita 
   - [5. Reparador DBCC](#5-reparador-dbcc)
   - [6. Reparador de Usuarios Huérfanos](#6-reparador-de-usuarios-huérfanos)
   - [7. Monitor de Bloqueos (Deadlocks)](#7-monitor-de-bloqueos-deadlocks)
-  - [8. Gestor Masivo de Respaldos](#8-gestor-masivo-de-respaldos)
+  - [8. Comparador de Bases de Datos](#8-comparador-de-bases-de-datos)
   - [9. Mantenimiento de Índices](#9-mantenimiento-de-índices)
   - [10. Reporteador SQL](#10-reporteador-sql)
   - [11. Limpiador de Tablas Temporales](#11-limpiador-de-tablas-temporales)
@@ -167,6 +167,7 @@ Herramienta de diagnóstico que verifica si la configuración de la instancia de
 ## Control de Versiones (Changelog)
 
 ### v1.521 (Actual)
+* **[NEW]** Se ha integrado el **Módulo 8: Comparador de Bases de Datos**. Permite cruzar estructuras de tablas (columnas, tipos, nulos) y código T-SQL nativo de Vistas, Funciones y Procedimientos entre dos bases de datos, mostrando las discrepancias en un panel divisor inteligente con coloreado de sintaxis.
 * **[FIX]** Corrección crítica en el motor SMO para las migraciones parciales (Modo Personalizado y Tablas Faltantes). Ahora la aplicación inyecta proactivamente la creación de cualquier esquema adicional (ej. `ventas`, `rrhh`) para garantizar que las tablas con esquemas ajenos a `dbo` se creen y migren de manera exitosa.
 
 ### v1.520
