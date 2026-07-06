@@ -1,5 +1,5 @@
 {
-    "changelog":  "- Se restauro el Buscador de Dependencias Externas en el menu principal.\n- Fix: actualizador automatico ahora usa UTF-8 y maneja mejor los bloqueos de archivo.",
+    "changelog":  "- [FIX] Se soluciona el cierre repentino de la aplicacion al presionar la 'X' en modulos como Gestor de Respaldos y Reparador de Usuarios Huerfanos.",
     "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.519"
+    "version":  "1.520"
 }

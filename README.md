@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.519-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.520-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- ⬇️ **[Descargar Última Versión (v1.519)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- ⬇️ **[Descargar Última Versión (v1.520)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -166,7 +166,10 @@ Herramienta de diagnóstico que verifica si la configuración de la instancia de
 
 ## Control de Versiones (Changelog)
 
-### v1.519 (Actual)
+### v1.520 (Actual)
+* **[FIX]** Se solucionó el cierre repentino de la aplicación al presionar la 'X' en módulos como el Gestor de Respaldos y el Reparador de Usuarios Huérfanos. Ahora el Menú Principal se restaura correctamente.
+
+### v1.519
 * **[MEJORA]** El módulo auto-actualizador ahora decodifica los mensajes nativamente en formato UTF-8 para prevenir errores visuales de caracteres (como tildes o eñes) en sistemas locales en español.
 * **[MEJORA]** Lógica de reemplazo de archivo mejorada: el instalador ahora hace reintentos automáticos si el archivo anterior sigue bloqueado en memoria, garantizando instalaciones más limpias.
 * **[NUEVO]** Se restauró el "Buscador de Dependencias Externas" (cross-database) clásico al Menú Principal, coexistiendo de forma independiente con el nuevo "Visualizador de Relaciones".
