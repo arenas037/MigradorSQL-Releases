@@ -14,21 +14,23 @@ La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita 
 ## Índice
 - [Descripción General](#descripción-general)
 - [Manual de Módulos](#manual-de-módulos)
-  - [1. Buscador de Datos SQL](#1-buscador-de-datos-sql)
-  - [2. Gestor de Paquetes (Data Packager)](#2-gestor-de-paquetes-data-packager)
-  - [3. Migrador de Bases de Datos](#3-migrador-de-bases-de-datos)
-  - [4. Reductor de Logs (Shrink)](#4-reductor-de-logs-shrink)
-  - [5. Reparador DBCC](#5-reparador-dbcc)
+  - [1. Migrador de Base de Datos](#1-migrador-de-base-de-datos)
+  - [2. Herramienta de Reparación DBCC](#2-herramienta-de-reparación-dbcc)
+  - [3. Gestor de Archivos LDF](#3-gestor-de-archivos-ldf)
+  - [4. Mantenimiento de Índices y Estadísticas](#4-mantenimiento-de-índices-y-estadísticas)
+  - [5. Monitor de Actividad (Bloqueos y Sesiones)](#5-monitor-de-actividad-bloqueos-y-sesiones)
   - [6. Reparador de Usuarios Huérfanos](#6-reparador-de-usuarios-huérfanos)
-  - [7. Monitor de Bloqueos (Deadlocks)](#7-monitor-de-bloqueos-deadlocks)
-  - [8. Comparador de Bases de Datos](#8-comparador-de-bases-de-datos)
-  - [9. Mantenimiento de Índices](#9-mantenimiento-de-índices)
+  - [7. Gestor Masivo de Respaldos](#7-gestor-masivo-de-respaldos)
+  - [8. Gestor de Paquetes de Datos (Import/Export)](#8-gestor-de-paquetes-de-datos-importexport)
+  - [9. Buscador Global de Datos](#9-buscador-global-de-datos)
   - [10. Reporteador SQL](#10-reporteador-sql)
   - [11. Limpiador de Tablas Temporales](#11-limpiador-de-tablas-temporales)
-  - [12. Buscador de Dependencias](#12-buscador-de-dependencias)
-  - [13. Gestor de Acceso (Usuarios DB)](#13-gestor-de-acceso-usuarios-db)
-  - [14. Gestor de Compresión de Índices y Tablas](#14-gestor-de-compresión-de-índices-y-tablas)
-  - [15. Monitor de Salud y Mejores Prácticas](#15-monitor-de-salud-y-mejores-prácticas)
+  - [12. Gestor de Accesos y Bloqueos](#12-gestor-de-accesos-y-bloqueos)
+  - [13. Visualizador de Dependencias / Relaciones](#13-visualizador-de-dependencias--relaciones)
+  - [14. Buscador de Dependencias Externas](#14-buscador-de-dependencias-externas)
+  - [15. Gestor Inteligente de Compresión de Datos](#15-gestor-inteligente-de-compresión-de-datos)
+  - [16. Monitor de Salud y Mejores Prácticas](#16-monitor-de-salud-y-mejores-prácticas)
+  - [17. Comparador de Bases de Datos](#17-comparador-de-bases-de-datos)
 - [Control de Versiones (Changelog)](#control-de-versiones-changelog)
 
 ---
@@ -40,23 +42,7 @@ La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita 
 
 ## Manual de Módulos
 
-### 1. Buscador de Datos SQL
-Este módulo te permite buscar un valor específico (números, textos, fechas) en *toda* una base de datos o en una tabla específica, sin tener que escribir sentencias `SELECT` interminables.
-
-* **Caso de Uso:** Necesitas saber en qué tabla y columna se guardó el ID de transacción "TX1004" pero la base de datos tiene más de 300 tablas.
-* **Características:**
-  * Uso inteligente de `NOLOCK` para no bloquear tablas en producción.
-  * Autodetección de tipos de datos.
-
-### 2. Gestor de Paquetes (Data Packager)
-Permite extraer registros de múltiples tablas y empaquetarlos en un archivo portátil (`.agy`), para luego importarlos en otra base de datos de manera sincronizada.
-
-* **Caso de Uso:** Tienes un ambiente de Pruebas y un ambiente de Producción. Quieres pasar 50 nuevos artículos y 2 nuevas categorías desde Pruebas a Producción sin reescribir IDs.
-* **Características:**
-  * Validaciones de seguridad para bloquear operaciones destructivas accidentales.
-  * Modos de importación: Diferencial (solo nuevos), Sincronización (Insert/Update), y Modo Normal.
-
-### 3. Migrador de Bases de Datos
+### 1. Migrador de Base de Datos
 Transfiere esquemas, tablas, datos, procedimientos y vistas desde una base de datos de origen a una de destino, incluso operando entre servidores completamente diferentes (ej. SQL Server 2008 a SQL Server 2022).
 
 * **Caso de Uso:** Migrar un cliente desde un servidor Legacy inestable hacia un servidor Cloud moderno, asegurando que todos los objetos se traspasen sin pérdida de datos.
@@ -69,20 +55,35 @@ Transfiere esquemas, tablas, datos, procedimientos y vistas desde una base de da
   * **Resolución Inteligente de Dependencias:** Respeta y resuelve automáticamente llaves foráneas (Foreign Keys) para evitar errores de integridad referencial.
   * **Tolerancia a Fallos:** Ignora lotes erróneos (por dependencias externas irresolubles) permitiendo que la creación de la base de datos continúe sin abortar el proceso.
 
-### 4. Reductor de Logs (Shrink)
-Las bases de datos SQL Server pueden generar archivos de registro (`.ldf`) gigantescos. Este módulo los reduce de forma segura y aplica modelos de recuperación adaptados al caso (Simple/Full).
-
-* **Caso de Uso:** El disco del servidor está al 99% de capacidad porque el archivo de transacciones creció a 100 GB.
-* **Características:**
-  * Reducción inteligente por tamaño objetivo en MB.
-
-### 5. Reparador DBCC
+### 2. Herramienta de Reparación DBCC
 Verifica la integridad física y lógica de todos los objetos en la base de datos especificada usando `DBCC CHECKDB`.
 
 * **Caso de Uso:** El servidor sufrió un apagón y sospechas de corrupción de datos o páginas rotas.
 * **Características:**
   * Forzado inteligente de modo `SINGLE_USER`. Si hay otras conexiones bloqueando el proceso, el sistema es capaz de hacer `KILL` automáticamente a todas las sesiones invasoras para garantizar la reparación.
   * Soporte para `REPAIR_ALLOW_DATA_LOSS` en casos críticos (bases de datos `SUSPECT`).
+
+### 3. Gestor de Archivos LDF
+Las bases de datos SQL Server pueden generar archivos de registro (`.ldf`) gigantescos. Este módulo los reduce de forma segura y aplica modelos de recuperación adaptados al caso (Simple/Full).
+
+* **Caso de Uso:** El disco del servidor está al 99% de capacidad porque el archivo de transacciones creció a 100 GB.
+* **Características:**
+  * Reducción inteligente por tamaño objetivo en MB.
+
+### 4. Mantenimiento de Índices y Estadísticas
+Analiza el grado de fragmentación de los índices de una base de datos y permite reorganizarlos o reconstruirlos.
+
+* **Caso de Uso:** Las consultas de búsqueda están muy lentas tras meses de uso intenso del sistema.
+* **Características:**
+  * Sugiere REORGANIZE o REBUILD basado en el porcentaje de fragmentación.
+
+### 5. Monitor de Actividad (Bloqueos y Sesiones)
+Visualiza en tiempo real los procesos bloqueados o en espera en la instancia de SQL Server.
+
+* **Caso de Uso:** Una consulta pesada dejó "colgado" el sistema de facturación.
+* **Características:**
+  * Permite matar la sesión (`KILL`) directamente desde la interfaz.
+  * Muestra el texto de la consulta infractora.
 
 ### 6. Reparador de Usuarios Huérfanos
 Identifica y re-vincula usuarios de bases de datos (Database Users) que han perdido su conexión con el inicio de sesión del servidor (Server Login).
@@ -91,15 +92,7 @@ Identifica y re-vincula usuarios de bases de datos (Database Users) que han perd
 * **Características:**
   * Opción "Auto-Fix" de un clic para usuarios sin contraseña conocida.
 
-### 7. Monitor de Bloqueos (Deadlocks)
-Visualiza en tiempo real los procesos bloqueados o en espera en la instancia de SQL Server.
-
-* **Caso de Uso:** Una consulta pesada dejó "colgado" el sistema de facturación.
-* **Características:**
-  * Permite matar la sesión (`KILL`) directamente desde la interfaz.
-  * Muestra el texto de la consulta infractora.
-
-### 8. Gestor Masivo de Respaldos
+### 7. Gestor Masivo de Respaldos
 Realiza backups completos, diferenciales o de registro de múltiples bases de datos al mismo tiempo, mostrando el progreso de forma visual.
 
 * **Caso de Uso:** Respaldo preventivo antes de actualizar la aplicación de contabilidad (ERP).
@@ -107,14 +100,23 @@ Realiza backups completos, diferenciales o de registro de múltiples bases de da
   * Respaldo por lotes.
   * Opción de añadir fecha/hora al nombre de archivo.
 
-### 9. Mantenimiento de Índices
-Analiza el grado de fragmentación de los índices de una base de datos y permite reorganizarlos o reconstruirlos.
+### 8. Gestor de Paquetes de Datos (Import/Export)
+Permite extraer registros de múltiples tablas y empaquetarlos en un archivo portátil (`.agy`), para luego importarlos en otra base de datos de manera sincronizada.
 
-* **Caso de Uso:** Las consultas de búsqueda están muy lentas tras meses de uso intenso del sistema.
+* **Caso de Uso:** Tienes un ambiente de Pruebas y un ambiente de Producción. Quieres pasar 50 nuevos artículos y 2 nuevas categorías desde Pruebas a Producción sin reescribir IDs.
 * **Características:**
-  * Sugiere REORGANIZE o REBUILD basado en el porcentaje de fragmentación.
+  * Validaciones de seguridad para bloquear operaciones destructivas accidentales.
+  * Modos de importación: Diferencial (solo nuevos), Sincronización (Insert/Update), y Modo Normal.
 
-### 10. Reporteador SQL y Ejecutor Nativo
+### 9. Buscador Global de Datos
+Este módulo te permite buscar un valor específico (números, textos, fechas) en *toda* una base de datos o en una tabla específica, sin tener que escribir sentencias `SELECT` interminables.
+
+* **Caso de Uso:** Necesitas saber en qué tabla y columna se guardó el ID de transacción "TX1004" pero la base de datos tiene más de 300 tablas.
+* **Características:**
+  * Uso inteligente de `NOLOCK` para no afectar rendimiento de bases transaccionales.
+  * Autodetección de tipos de datos.
+
+### 10. Reporteador SQL
 Un editor SQL profesional y motor de ejecución integrado capaz de procesar consultas (`SELECT` o `EXEC SP`), además de interpretar y ejecutar reportes desarrollados originalmente en el sistema base de Delphi (guardados como T-Strings/TWriter serializados en BLOBs).
 
 * **Caso de Uso:** El departamento de finanzas solicita un reporte complejo (ej. ventas cruzadas del año en curso) cuyo volumen de datos supera las 800 mil líneas, causando que el sistema legacy colapse o se quede sin memoria. El Reporteador extrae el código, genera la UI de parámetros y exporta el resultado directamente saltándose las limitaciones del cliente antiguo.
@@ -132,22 +134,28 @@ Un editor SQL profesional y motor de ejecución integrado capaz de procesar cons
   * Al ingresar, presiona **Analizar DB**. Esto no borrará nada, sólo generará una lista visual de qué tablas cumplen el criterio.
   * Revisa la lista, y si estás de acuerdo, presiona **Limpiar Tablas**. El sistema ejecutará el `DROP` tabla por tabla, capturando cualquier error si alguna llegara a estar bloqueada.
 
-### 12. Visualizador de Relaciones y Dependencias (SSMS-Style)
-Analiza y visualiza las relaciones jerárquicas entre los objetos de una base de datos utilizando las vistas del sistema de SQL Server (como `sys.sql_expression_dependencies`).
-* **Caso de Uso:** Necesitas modificar una tabla núcleo (ej. `CLIENTES`) y deseas saber exactamente qué Vistas y Procedimientos Almacenados se romperían si eliminas una columna.
-* **Características:**
-  * **Búsqueda Dinámica:** Filtra tablas, vistas, funciones y procedimientos en tiempo real.
-  * **Visualización Bidireccional (Pestañas):** Descubre rápidamente "Objetos que dependen de mí" (quién te usa) y "Objetos de los que dependo" (a quién usas).
-  * **Estructura SSMS:** Representación visual a través de un árbol de jerarquías agolpado por tipo de objeto.
-
-### 13. Gestor de Acceso (Usuarios DB)
+### 12. Gestor de Accesos y Bloqueos
 Permite activar (Habilitar) o desactivar (Denegar conexión) rápidamente a los usuarios de una base de datos específica (excepto cuentas críticas como `dbo` o `sa`).
 * **Caso de Uso:** Vas a realizar un mantenimiento crítico en una base de datos y quieres evitar ingresos accidentales de usuarios de aplicación durante el proceso por seguridad.
 * **Características:**
   * Interfaz de selección por casillas de verificación (Checkboxes).
   * Aplicación masiva de permisos de estado `CONNECT`.
 
-### 14. Gestor de Compresión de Índices y Tablas
+### 13. Visualizador de Dependencias / Relaciones
+Analiza y visualiza las relaciones jerárquicas entre los objetos de una base de datos utilizando las vistas del sistema de SQL Server (como `sys.sql_expression_dependencies`).
+* **Caso de Uso:** Necesitas modificar una tabla núcleo (ej. `CLIENTES`) y deseas saber exactamente qué Vistas y Procedimientos Almacenados se romperían si eliminas una columna.
+* **Características:**
+  * **Búsqueda Dinámica:** Filtra tablas, vistas, funciones y procedimientos en tiempo real.
+  * **Visualización Bidireccional (Pestañas):** Descubre rápidamente "Objetos que dependen de mí" (quién te usa) y "Objetos de los que dependo" (a quién usas).
+  * **Estructura SSMS:** Representación visual a través de un árbol de jerarquías agrupado por tipo de objeto.
+
+### 14. Buscador de Dependencias Externas
+Identifica objetos dentro de tu base de datos actual que dependen de estructuras ubicadas en **otras bases de datos**.
+* **Caso de Uso:** Estás a punto de migrar una base de datos de "Ventas" a otro servidor y necesitas descubrir si hace llamados cruzados a la base de datos de "Contabilidad" que puedan romperse.
+* **Características:**
+  * Rastreo de enlaces entre tres niveles (`Server.Database.Schema.Object`).
+
+### 15. Gestor Inteligente de Compresión de Datos
 Módulo enfocado en la optimización de almacenamiento mediante la compresión nativa de SQL Server (ROW y PAGE).
 * **Caso de Uso:** Reducir significativamente el espacio en disco utilizado por las bases de datos y mejorar el rendimiento de I/O, sin afectar el código de la aplicación.
 * **Características:**
@@ -155,12 +163,19 @@ Módulo enfocado en la optimización de almacenamiento mediante la compresión n
   * **Interfaz Optimizada:** Muestra una lista filtrada solo con objetos que se benefician de la compresión.
   * **Aplicación Directa:** Permite aplicar la compresión (`REBUILD`) con un simple clic desde un modal detallado, con barra de progreso en tiempo real.
 
-### 15. Monitor de Salud y Mejores Prácticas
+### 16. Monitor de Salud y Mejores Prácticas
 Herramienta de diagnóstico que verifica si la configuración de la instancia de SQL Server cumple con los estándares de la industria y las mejores prácticas de rendimiento.
 * **Caso de Uso:** Identificar cuellos de botella y configuraciones por defecto ineficientes en un servidor (ej. memoria no limitada, umbral de paralelismo bajo).
 * **Características:**
   * **Verificación Rápida:** Analiza parámetros críticos como `Max Server Memory`, `Cost Threshold for Parallelism`, `MAXDOP` y configuración de `TempDB`.
   * **Corrección Automática (Auto-Fix):** Permite aplicar las configuraciones recomendadas directamente desde la herramienta de forma segura, previa confirmación del usuario.
+
+### 17. Comparador de Bases de Datos
+Permite cruzar estructuras y definiciones de código nativo entre dos bases de datos para auditar discrepancias.
+* **Caso de Uso:** Asegurarte de que la base de datos de Producción está 100% idéntica a la de Pruebas tras una actualización, previniendo errores por columnas o procedimientos almacenados faltantes.
+* **Características:**
+  * Compara Tablas (tipos, nulos, longitud), Vistas, Procedimientos, Funciones, Triggers y Claves Foráneas.
+  * Panel divisor inteligente (Side-by-Side Diff) con coloreado de sintaxis SQL.
 
 ---
 
