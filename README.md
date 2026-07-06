@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.521-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.522-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- ⬇️ **[Descargar Última Versión (v1.521)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- 📥 **[Descargar Última Versión (v1.522)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -166,7 +166,12 @@ Herramienta de diagnóstico que verifica si la configuración de la instancia de
 
 ## Control de Versiones (Changelog)
 
-### v1.521 (Actual)
+### v1.522 (Actual)
+* **[NEW]** Se ha integrado el filtro de **Tipo de Objeto** en el Comparador de Bases de Datos, y se ha añadido la inspección del estado activo/deshabilitado de las **Claves Foráneas**.
+* **[FIX]** Se ha solucionado el problema en el Motor de Migración donde las restricciones foráneas quedaban deshabilitadas al fallar el control de integridad sobre datos antiguos.
+* **[FIX]** Se ha solucionado la falla de inicio de sesión con **Windows Authentication** al integrar explícitamente `integratedSecurity=true` en la cadena JDBC.
+
+### v1.521
 * **[NEW]** Se ha integrado el **Módulo 8: Comparador de Bases de Datos**. Permite cruzar estructuras de tablas (columnas, tipos, nulos) y código T-SQL nativo de Vistas, Funciones y Procedimientos entre dos bases de datos, mostrando las discrepancias en un panel divisor inteligente con coloreado de sintaxis.
 * **[FIX]** Corrección crítica en el motor SMO para las migraciones parciales (Modo Personalizado y Tablas Faltantes). Ahora la aplicación inyecta proactivamente la creación de cualquier esquema adicional (ej. `ventas`, `rrhh`) para garantizar que las tablas con esquemas ajenos a `dbo` se creen y migren de manera exitosa.
 
