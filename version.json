@@ -1,5 +1,5 @@
 {
-    "changelog":  "- [FIX] Se optimizó el algoritmo del Comparador de BD para ignorar falsos positivos producidos por diferencias cosméticas (corchetes, prefijos dbo, etc).",
+    "changelog":  "- [NEW] Se ha añadido el patrón ARTICSTOREDOWNLOAD_% al Limpiador de Tablas Temporales.",
     "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.523"
+    "version":  "1.524"
 }

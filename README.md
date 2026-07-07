@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.523-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.524-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- 📥 **[Descargar Última Versión (v1.523)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- 📥 **[Descargar Última Versión (v1.524)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -181,7 +181,10 @@ Permite cruzar estructuras y definiciones de código nativo entre dos bases de d
 
 ## Control de Versiones (Changelog)
 
-### v1.523 (Actual)
+### v1.524 (Actual)
+* **[NEW]** Se ha añadido el patrón `ARTICSTOREDOWNLOAD_%` al Limpiador de Tablas Temporales para su detección y eliminación automática.
+
+### v1.523
 * **[FIX]** Se optimizó el algoritmo del Comparador de Bases de Datos para ignorar falsos positivos producidos por diferencias cosméticas (corchetes `[]`, prefijos de esquema por defecto como `dbo.` y cambios en mayúsculas/minúsculas).
 
 ### v1.522
