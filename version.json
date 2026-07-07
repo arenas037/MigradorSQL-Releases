@@ -1,5 +1,5 @@
 {
-    "changelog":  "- [NEW] Filtro de Tipo de Objeto en Comparador (incluye Claves Foráneas). [FIX] Error de restricciones deshabilitadas en migraciones solucionado. [FIX] Bug de Windows Authentication solucionado.",
+    "changelog":  "- [FIX] Se optimizó el algoritmo del Comparador de BD para ignorar falsos positivos producidos por diferencias cosméticas (corchetes, prefijos dbo, etc).",
     "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.522"
+    "version":  "1.523"
 }

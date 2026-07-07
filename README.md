@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.522-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.523-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- 📥 **[Descargar Última Versión (v1.522)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- 📥 **[Descargar Última Versión (v1.523)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -181,7 +181,10 @@ Permite cruzar estructuras y definiciones de código nativo entre dos bases de d
 
 ## Control de Versiones (Changelog)
 
-### v1.522 (Actual)
+### v1.523 (Actual)
+* **[FIX]** Se optimizó el algoritmo del Comparador de Bases de Datos para ignorar falsos positivos producidos por diferencias cosméticas (corchetes `[]`, prefijos de esquema por defecto como `dbo.` y cambios en mayúsculas/minúsculas).
+
+### v1.522
 * **[NEW]** Se ha integrado el filtro de **Tipo de Objeto** en el Comparador de Bases de Datos, y se ha añadido la inspección del estado activo/deshabilitado de las **Claves Foráneas**.
 * **[FIX]** Se ha solucionado el problema en el Motor de Migración donde las restricciones foráneas quedaban deshabilitadas al fallar el control de integridad sobre datos antiguos.
 * **[FIX]** Se ha solucionado la falla de inicio de sesión con **Windows Authentication** al integrar explícitamente `integratedSecurity=true` en la cadena JDBC.
