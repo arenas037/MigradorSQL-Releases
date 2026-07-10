@@ -1,5 +1,5 @@
 {
-    "changelog":  "- [NEW] Se ha añadido el patrón ARTICSTOREDOWNLOAD_% al Limpiador de Tablas Temporales.",
+    "changelog":  "- [FIX] Se corrigió migración de defaults y se mejoró el comparador para detectar defaults y UDTs.",
     "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.524"
+    "version":  "1.525"
 }

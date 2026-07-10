@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.524-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.525-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- 📥 **[Descargar Última Versión (v1.524)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- 📥 **[Descargar Última Versión (v1.525)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -181,7 +181,11 @@ Permite cruzar estructuras y definiciones de código nativo entre dos bases de d
 
 ## Control de Versiones (Changelog)
 
-### v1.524 (Actual)
+### v1.525 (Actual)
+* **[FIX]** Se corrigió un problema donde los valores predeterminados (Defaults) definidos mediante objetos independientes (`CREATE DEFAULT`) o enlazados a Tipos de Datos definidos por el usuario (UDTs) no se extraían correctamente en las migraciones completas.
+* **[NEW]** El Comparador de Bases de Datos ahora detecta diferencias si una columna usa un Tipo de Dato nativo o uno Definido por el Usuario (UDT), y ahora lista objetos de tipo Regla (`CREATE RULE`) y Predeterminados (`CREATE DEFAULT`).
+
+### v1.524
 * **[NEW]** Se ha añadido el patrón `ARTICSTOREDOWNLOAD_%` al Limpiador de Tablas Temporales para su detección y eliminación automática.
 
 ### v1.523
