@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.526-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.527-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- 📥 **[Descargar Última Versión (v1.526)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- 📥 **[Descargar Última Versión (v1.527)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -181,7 +181,12 @@ Permite cruzar estructuras y definiciones de código nativo entre dos bases de d
 
 ## Control de Versiones (Changelog)
 
-### v1.526 (Actual)
+### v1.527 (Actual)
+* **[NEW]** Se añadió estadísticas de porcentaje de diferencias al Comparador de Bases de Datos.
+* **[NEW]** Se añadió un campo de texto para filtrar los resultados por nombre de objeto en el Comparador.
+* **[NEW]** Se incorporó la posibilidad de exportar los resultados del Comparador a un archivo de Excel (.xlsx).
+
+### v1.526
 * **[NEW]** Se añadió resaltado visual (fondo amarillo translúcido) en el Comparador de Bases de Datos para mostrar exactamente las líneas de código que difieren entre el Origen y el Destino, utilizando algoritmos de diff avanzados.
 
 ### v1.525
