@@ -1,5 +1,5 @@
 {
-    "changelog":  "- [NEW] Se añadió filtro de búsqueda por texto, estadísticas de porcentaje de diferencias, y exportación a Excel en el Comparador.",
+    "changelog":  "- [NEW] Se añadió búsqueda en código de SPs/Vistas/Funciones, filtro y exportación a Excel en el Buscador.",
     "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.527"
+    "version":  "1.528"
 }
