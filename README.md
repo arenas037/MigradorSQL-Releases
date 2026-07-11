@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.525-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.526-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- 📥 **[Descargar Última Versión (v1.525)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- 📥 **[Descargar Última Versión (v1.526)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -181,7 +181,10 @@ Permite cruzar estructuras y definiciones de código nativo entre dos bases de d
 
 ## Control de Versiones (Changelog)
 
-### v1.525 (Actual)
+### v1.526 (Actual)
+* **[NEW]** Se añadió resaltado visual (fondo amarillo translúcido) en el Comparador de Bases de Datos para mostrar exactamente las líneas de código que difieren entre el Origen y el Destino, utilizando algoritmos de diff avanzados.
+
+### v1.525
 * **[FIX]** Se corrigió un problema donde los valores predeterminados (Defaults) definidos mediante objetos independientes (`CREATE DEFAULT`) o enlazados a Tipos de Datos definidos por el usuario (UDTs) no se extraían correctamente en las migraciones completas.
 * **[NEW]** El Comparador de Bases de Datos ahora detecta diferencias si una columna usa un Tipo de Dato nativo o uno Definido por el Usuario (UDT), y ahora lista objetos de tipo Regla (`CREATE RULE`) y Predeterminados (`CREATE DEFAULT`).
 

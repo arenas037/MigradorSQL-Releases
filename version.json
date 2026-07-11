@@ -1,5 +1,5 @@
 {
-    "changelog":  "- [FIX] Se corrigió migración de defaults y se mejoró el comparador para detectar defaults y UDTs.",
+    "changelog":  "- [NEW] Se añadió resaltado visual de diferencias (fondo amarillo) en el Comparador de Bases de Datos.",
     "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.525"
+    "version":  "1.526"
 }
