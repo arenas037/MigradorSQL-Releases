@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.527-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.529-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- 📥 **[Descargar Última Versión (v1.528)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- 📥 **[Descargar Última Versión (v1.529)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -181,7 +181,12 @@ Permite cruzar estructuras y definiciones de código nativo entre dos bases de d
 
 ## Control de Versiones (Changelog)
 
-### v1.528 (Actual)
+### v1.529 (Actual)
+* **[NEW]** Mejoras en el Gestor de Paquetes (Importador/Exportador): Nuevo editor SQL con resaltado de sintaxis (RSyntaxTextArea) y protección contra edición directa en la tabla de consultas.
+* **[FIX]** Corrección de mapeo de tipos de datos al importar (soporte para campos `image`/`binary` con valores nulos sin errores de conversión).
+* **[FIX]** Corrección global de un problema con el Look and Feel en Windows/Java 8 donde el texto seleccionado se sobreescribía de forma incorrecta al escribir.
+
+### v1.528
 * **[NEW]** Se añadió la capacidad de buscar texto directamente dentro del código fuente (estructura) de Procedimientos Almacenados, Vistas y Funciones en el Buscador Global.
 * **[NEW]** Se agregó un filtro de búsqueda rápida y exportación a Excel en los resultados del Buscador Global.
 

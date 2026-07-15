@@ -1,5 +1,5 @@
 {
-    "changelog":  "- [NEW] Se añadió búsqueda en código de SPs/Vistas/Funciones, filtro y exportación a Excel en el Buscador.",
-    "url":  "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-    "version":  "1.528"
+  "latest_version": "1.529",
+  "download_url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
+  "release_notes": "Mejoras en el Importador/Exportador (soporte campos binary/image nulos y nuevo editor SQL con sintaxis coloreada), corrección de texto sobreescrito al seleccionar en el Buscador Global."
 }
