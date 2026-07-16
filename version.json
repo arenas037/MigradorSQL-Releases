@@ -1,5 +1,5 @@
 {
-  "latest_version": "1.529",
+  "latest_version": "1.532",
   "download_url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-  "release_notes": "Mejoras en el Importador/Exportador (soporte campos binary/image nulos y nuevo editor SQL con sintaxis coloreada), correcciÃ³n de texto sobreescrito al seleccionar en el Buscador Global."
+  "release_notes": "Mejoras en el Importador (sub-particionamiento de tablas, indicadores de progreso interactivos, memoria de historial por partes) y actualización interna a v1.532."
 }
