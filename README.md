@@ -1,13 +1,13 @@
 # RedesipSuite SQL Server (MigradorSQL)
 
 ![Redesip Logo](https://img.shields.io/badge/Redesip-SQL_Suite-blue?style=for-the-badge&logo=microsoft-sql-server)
-![Version](https://img.shields.io/badge/Version-1.529-brightgreen?style=for-the-badge)
+![Version](https://img.shields.io/badge/Version-1.532-brightgreen?style=for-the-badge)
 ![Status](https://img.shields.io/badge/Status-Estable-success?style=for-the-badge)
 
 La **RedesipSuite SQL Server** es una potente aplicación de escritorio escrita en Java (Swing) diseñada específicamente para interactuar, analizar, mantener y migrar bases de datos de Microsoft SQL Server de forma segura, rápida y controlada.
 
 ## Enlaces Rápidos
-- 📥 **[Descargar Última Versión (v1.529)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
+- 📥 **[Descargar Última Versión (v1.532)](https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe)**
 
 ---
 
@@ -181,7 +181,15 @@ Permite cruzar estructuras y definiciones de código nativo entre dos bases de d
 
 ## Control de Versiones (Changelog)
 
-### v1.529 (Actual)
+### v1.532 (Actual)
+* **[NEW]** Gestor de Paquetes: Soporte para **sub-particionamiento inteligente** de tablas gigantes. Ahora las tablas se exportan e importan en múltiples partes dinámicas (ej. `CLIENTES_part1`, `CLIENTES_part2`).
+* **[NEW]** Gestor de Paquetes: Barra de progreso interactiva proporcional al peso de las sub-partes y tablas procesadas.
+* **[NEW]** Gestor de Paquetes: Sistema avanzado de **reanudación de historial**. La herramienta recuerda exactamente qué sub-partes han sido importadas exitosamente (en la tabla de seguimiento `_MigradorTracking`). Si una importación masiva se detiene o falla, al reintentar mostrará el estado "Parcial (X/Y)" y saltará en milisegundos las partes ya procesadas para continuar justo donde se quedó.
+
+### v1.530
+* **[FIX]** Se optimizó la interfaz visual (`FlatLaf`) para prevenir caídas repentinas (`EXCEPTION_ACCESS_VIOLATION` en `awt.dll`) en sistemas Windows con aceleración de hardware activa.
+
+### v1.529
 * **[NEW]** Mejoras en el Gestor de Paquetes (Importador/Exportador): Nuevo editor SQL con resaltado de sintaxis (RSyntaxTextArea) y protección contra edición directa en la tabla de consultas.
 * **[FIX]** Corrección de mapeo de tipos de datos al importar (soporte para campos `image`/`binary` con valores nulos sin errores de conversión).
 * **[FIX]** Corrección global de un problema con el Look and Feel en Windows/Java 8 donde el texto seleccionado se sobreescribía de forma incorrecta al escribir.
