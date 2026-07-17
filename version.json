@@ -1,5 +1,5 @@
 {
   "latest_version": "1.534",
-  "download_url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
+  "download_url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe?v=1.534",
   "release_notes": "Soporte para omitir columnas identity (auto-incrementales) modificando la consulta de exportación. Actualización v1.534."
 }
