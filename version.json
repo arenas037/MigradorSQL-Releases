@@ -1,5 +1,5 @@
 {
-  "latest_version": "1.533",
+  "latest_version": "1.534",
   "download_url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe",
-  "release_notes": "Resolución de problema visual (layout de pestañas) en pantallas pequeñas y mejoras generales. Actualización v1.533."
+  "release_notes": "Soporte para omitir columnas identity (auto-incrementales) modificando la consulta de exportación. Actualización v1.534."
 }
