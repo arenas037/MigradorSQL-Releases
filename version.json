@@ -1,5 +1,5 @@
 {
-  "latest_version": "1.545",
-  "download_url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe?v=1.545",
-  "release_notes": "Nuevo Gestor Central de Conexiones a Bases de Datos con catálogo de perfiles guardados y listado automático de BDs. Visor de Usuarios y Credenciales desencriptadas con NORMALKEY."
+  "latest_version": "1.546",
+  "download_url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe?v=1.546",
+  "release_notes": "Integración completa del selector de Perfiles Guardados en todas las pantallas del sistema. Botón 'Probar Conexión' estandarizado. Corrección dinámica de columnas en el módulo de Perfiles de Usuario (NOMUSUARIO/USUARIO)."
 }
