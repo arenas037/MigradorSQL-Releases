@@ -1,5 +1,5 @@
 {
-  "latest_version": "1.546",
-  "download_url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe?v=1.546",
-  "release_notes": "Integración completa del selector de Perfiles Guardados en todas las pantallas del sistema. Botón 'Probar Conexión' estandarizado. Corrección dinámica de columnas en el módulo de Perfiles de Usuario (NOMUSUARIO/USUARIO)."
+  "latest_version": "1.547",
+  "download_url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe?v=1.547",
+  "release_notes": "Visor de Usuarios: Copiado rápido de contraseñas (botón, doble clic y menú contextual) y asignación automática de contraseñas aleatorias seguras a usuarios sin clave en GENERAL.dbo.USUARIOS."
 }
