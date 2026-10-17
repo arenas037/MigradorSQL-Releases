@@ -1,5 +1,5 @@
 {
-  "latest_version": "1.548",
-  "download_url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe?v=1.548",
-  "release_notes": "Corrección de activación de Hardware Binding en Windows Server: soporte universal Java 8 (AES-128 sin restricción JCE), resolución sin bloqueo de hardware ID por Registro/CIM cuando WMIC está ausente, soporte para tecla Enter y ventanas de autorización optimizadas."
+  "latest_version": "1.549",
+  "download_url": "https://github.com/arenas037/MigradorSQL-Releases/raw/main/RedesipSuiteSQLSERVER.exe?v=1.549",
+  "release_notes": "Gestor de Compresión de Datos optimizado: actualización directa en lista sin recargar toda la base de datos al aplicar compresión, casillas de selección múltiple, botón de compresión en lote (batch), menú contextual y prevención de bloqueos por timeout."
 }
